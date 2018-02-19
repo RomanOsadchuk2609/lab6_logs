@@ -3,14 +3,18 @@ package sample;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.logging.Logger;
+//66 logs
 public class BooleanOperations {
+    final static Logger LOGGER = Logger.getLogger("BooleanOperations");
     private Boolean value1;
     private Boolean value2;
 
 
     //0
     public Boolean conjunction(){
+        LOGGER.info("Method conjuction() was called. "+"value1 = "+getValue1()
+                        +", value2 = " + getValue2());
         Boolean result = null;
 
         if (value1!=null && value2!=null)
@@ -19,14 +23,19 @@ public class BooleanOperations {
             result = false;
         else if(value2!=null && value2==false)
             result = false;
-
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
 
         return result;
     }
     //1
     public Boolean disjunction(){
+        LOGGER.info("Method disjuction() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result = null;
         if (value1!=null&&value2!=null)
             result = value1||value2;
@@ -35,54 +44,87 @@ public class BooleanOperations {
         else if(value2!=null && value2==true)
             result = true;
 
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
         return result;
     }
     //2
     public Boolean equality(){
+        LOGGER.info("Method equality() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result =null;
         if (value1!=null&&value2!=null)
             result = (value1&&value2)||(!value1&&!value2);
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
         return result;
     }
     //3
     public Boolean exclusiveOr(){
+        LOGGER.info("Method exclusiveOR() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result =null;
         if (value1!=null&&value2!=null)
             result =  (value1||value2)&&(!value1||!value2);
+
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
         return result;
     }
     //4
     public Boolean notOr(){// |v
-        //boolean result = (!value1&&!value2);
+        LOGGER.info("Method notOr() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result =null;
         if (value1!=null&&value2!=null)
             result = !(value1||value2);
         else if((value1!=null && value1==true) || (value2!=null && value2==true))
             result =  false;
+
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //5
     public Boolean notAnd(){// |
-        //boolean result = (!value1||!value2);
+        LOGGER.info("Method notAnd() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result =null;
         if (value1!=null&&value2!=null)
             result = !(value1&&value2);
         else if((value1!=null && value1==false) || (value2!=null && value2==false))
             result =  true;
+
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //6
     public Boolean implication(){// value1 -> value2 імплікація
+        LOGGER.info("Method implication() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result = null;
         if (value1!=null && value2!=null)
             result = !value1||value2;
@@ -94,12 +136,19 @@ public class BooleanOperations {
             result = true;
         }
 
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //7
     public Boolean converseImplication(){// value1 <- value2 обернена імплікація
+        LOGGER.info("Method converseImplication() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result =null;
         if (value1!=null && value2!=null){
             result = value1||!value2;
@@ -110,12 +159,20 @@ public class BooleanOperations {
         else if((value1!=null && value1==true)){
             result = true;
         }
+
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //8
     public Boolean notImplication(){// value1 !-> value2 заперечення імплікації
+        LOGGER.info("Method notImplication() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result = null;
         if (value1!=null && value2!=null){
             result = !(!value1||value2);
@@ -127,12 +184,19 @@ public class BooleanOperations {
             result = false;
         }
 
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //9
     public Boolean notConverseImplication(){// value1 !<- value2 заперечення оберненої імплікації
+        LOGGER.info("Method notConverseImplication() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result=null;
         if (value1!=null && value2!=null){
             result = !(value1||!value2);
@@ -143,54 +207,108 @@ public class BooleanOperations {
         else if((value1!=null && value1==true))
             result = false;
 
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //10
     public Boolean repeatTheFirstArgument(){
+        LOGGER.info("Method repeatTheFirstArgument() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
+        Boolean result = value1;
+
+        LOGGER.info("Result = "+result+"\n");
+        value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
-        return value1;
+        LOGGER.info("Value2 = null\n");
+
+        return result;
     }
     //11
     public Boolean repeatTheSecondArgument(){
+        LOGGER.info("Method repeatTheSecondArgument() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result = value2;
+
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //12
     public Boolean notTheFirstArgument(){
+        LOGGER.info("Method notTheFirstArgument() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result = null;
         if (value1 != null) {
             result=!value1;
         }
+
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //13
     public Boolean notTheSecondArgument(){
+        LOGGER.info("Method notTheSecondArgument() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
         Boolean result = null;
         if (value2 != null)
             result=!value2;
 
+        LOGGER.info("Result = "+result+"\n");
         value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
+        LOGGER.info("Value2 = null\n");
+
         return result;
     }
     //14
     public Boolean constTrue(){
-        value1 = true;
+        LOGGER.info("Method constTrue() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
+
+        Boolean result = true;
+
+        LOGGER.info("Result = "+result+"\n");
+        value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
-        return true;
+        LOGGER.info("Value2 = null\n");
+
+        return result;
     }
     //15
     public Boolean constFalse(){
+        LOGGER.info("Method constFalse() was called. "+"value1 = "+getValue1()
+                +", value2 = " + getValue2());
 
-        value1 = false;
+        Boolean result = false;
+
+        LOGGER.info("Result = "+result+"\n");
+        value1 = result;
+        LOGGER.info("Value1 = result = "+getValue1()+"\n");
         value2 = null;
-        return false;
+        LOGGER.info("Value2 = null\n");
+
+        return result;
     }
 
     public Boolean getValue1() {
@@ -198,7 +316,9 @@ public class BooleanOperations {
     }
 
     public void setValue1(Boolean value1) {
+
         this.value1 = value1;
+        LOGGER.info("new valu1 was setted; value1 = "+getValue1()+"\n");
     }
 
     public Boolean getValue2() {
@@ -207,6 +327,7 @@ public class BooleanOperations {
 
     public void setValue2(Boolean value2) {
         this.value2 = value2;
+        LOGGER.info("new value2 was setted; value2 = "+getValue2()+"\n");
     }
 
     public Boolean getResult(int numberOfOperation) {

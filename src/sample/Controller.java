@@ -211,7 +211,8 @@ public class Controller {
         LOGGER.info("btnNotEquals was clicked\n");
         if(isOperationSelected&&isValue2Selected&&isValue1Selected){
             lbl2.setText(lbl1.getText()+"=");
-            operation.setValue1(operation.getResult(numberOfOperation));
+            //operation.setValue1(operation.getResult(numberOfOperation));
+            operation.getResult(numberOfOperation);
             isOperationSelected=false;
             isValue2Selected=false;
             lbl1.setText(operation.getValue1()+" ");
